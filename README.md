@@ -27,5 +27,4 @@ https://docs.google.com/spreadsheets/d/1irYkHgEzBT9tyTOKXM_-fyO1LeMdPdhMoIZ4mXoG
 - IDE：Cloud9
 
 ## 使用素材
-  外部サイトから画像を使用するときは引用すること。
-  https://mynavi-creator.jp/knowhow/article/copyright-and-confidentiality-of-portfolio
+アプリ側では画像を使用しません
