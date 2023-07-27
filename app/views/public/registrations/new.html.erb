@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="col-3">
+    <h4>
+      <strong>新規登録</strong>
+    </h4>
+  </div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+  <div class="row">
+    <div class="col-3">
+      <p>名前</p>
+    </div>
+    <div class="col-3">
+      <p>(姓) <%= f.text_field :last_name %></p>
+    </div>
+    <div class="col-3">
+      <p>(名) <%= f.text_field :first_name %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>メールアドレス</p>
+    </div>
+    <div class="col-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>電話番号(ハイフンなし)</p>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :telephone_number %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>ニックネーム</p>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :nickname %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>自己紹介</p>
+    </div>
+    <div class="col-3">
+      <%= f.text_area :introduction %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>プロフィール画像</p>
+    </div>
+    <div class="col-3">
+      <%= f.file_field :profile_image, accept: "image/*" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>
+        パスワード
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %>文字以上)</em>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-3">
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>パスワード(確認用)</p>
+    </div>
+    <div class="col-3">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">
+      <%= f.submit "新規登録", class:"btn btn-success" %>
+    </div>
+  </div>
+<% end %>
+
+  <div class="row">
+    <div class="col-3">
+      <h4>
+        <strong>既に登録済みの方</strong>
+      </h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <p><%= render "public/shared/links" %>こちらからログインしてください。</p>
+    </div>
+  </div>
+</div>

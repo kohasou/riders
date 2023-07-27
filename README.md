@@ -25,6 +25,3 @@ https://docs.google.com/spreadsheets/d/1irYkHgEzBT9tyTOKXM_-fyO1LeMdPdhMoIZ4mXoG
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-アプリ側では画像を使用しません
