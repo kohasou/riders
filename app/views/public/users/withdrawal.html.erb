@@ -1,0 +1,15 @@
+<div class="container">
+  <p class="text-center">
+    <strong>本当に退会しますか？</strong>
+  </p>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col">
+      <%= link_to '退会しない', :back, class:"btn btn-primary" %>
+    </div>
+    <div class="col">
+      <%#= link_to '退会する', deleteprocess_path, method: :patch, class:"btn btn-danger" %>
+      <%= button_to '退会する', deleteprocess_path, method: :patch, class:"btn btn-danger" %>
+    </div>
+  </div>
+</div
