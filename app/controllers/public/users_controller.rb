@@ -12,7 +12,6 @@ class Public::UsersController < ApplicationController
   end
 
   def deleteprocess
-    
     current_user.update(is_active: false)
     reset_session
     redirect_to root_path

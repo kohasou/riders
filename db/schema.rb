@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2023_07_30_130705) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -99,7 +101,6 @@ ActiveRecord::Schema.define(version: 2023_07_30_130705) do
     t.string "last_name", null: false
     t.string "nickname", null: false
     t.string "introduction"
-    t.string "profile_image"
     t.string "telephone_number", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
