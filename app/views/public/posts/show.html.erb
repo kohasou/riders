@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h4>
+        <strong>投稿詳細</strong>
+      </h4>
+    </div>
+  </div>
+  <table class="col-5">
+    <tbody>
+      <tr>
+        <td class="col-3">商品名</td>
+        <td class="col-5"><%= @post.body %></td>
+      </tr>
+      <tr>
+        <td class="col-3">画像</td>
+        <td class="col-5">
+          <% if @post.image.attached? %>
+            <%= image_tag @post.get_image(200,200) %>
+          <% else %>
+            <td></td>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= link_to '編集する', edit_post_path, class:"btn btn-success" %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

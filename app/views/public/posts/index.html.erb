@@ -18,7 +18,13 @@
     <% @posts.each do |post| %>
       <tr>
         <th class="row"><%= post.body %></th>
-        <td><%= post.image %></td>
+        <td>
+          <% if post.image.attached? %>
+            <%= image_tag post.image %>
+          <% else %>
+            <td></td>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </tbody>

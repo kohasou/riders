@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <h4>
+      <strong>投稿編集</strong>
+    </h4>
+  </div>
+
+<%= form_with model: @post, url: post_path do |f| %>
+
+  <table class="col-5">
+    <tbody>
+      <tr>
+        <td class="col-3">テキスト</td>
+        <td class="col-3"><%= f.text_area :body %></td>
+      </tr>
+      <tr>
+        <td class="col-3">画像</td>
+        <td class="col-3"><%= f.file_field :image, accept: "image/*" %></td>
+      </tr>
+      <tr>
+        <td class="col-3"></td>
+        <td class="col-3"><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+</div>
