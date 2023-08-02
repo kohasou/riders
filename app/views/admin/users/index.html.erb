@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h4>
+        <strong>会員一覧</strong>
+      </h4>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-3">会員ID</th>
+        <th class="col-3">氏名</th>
+        <th class="col-3">メールアドレス</th>
+        <th class="col-3">会員ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+<% @users.each do |user| %>
+      <tr>
+        <th class="row"><%= user.id %></th>
+        <td><%= link_to user.last_name + user.first_name, admin_user_path(user.id) %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if user.is_active == true %>
+            <p class="text-success">有効</p>
+          <% else %>
+            <p class="text-muted">退会</p>
+          <% end %>
+        </td>
+      </tr>
+<% end %>
+    </tbody>
+  </table>
+</div>

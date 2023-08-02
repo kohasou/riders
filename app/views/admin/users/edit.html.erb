@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="col-4">
+    <h4>
+      <strong><%= @user.last_name + @user.first_name %>さんの会員情報編集</strong>
+    </h4>
+  </div>
+
+<%= form_with model: @user, url: admin_user_path do |f| %>
+
+  <div class="row">
+    <div class="col-3">
+      <p>会員ID</p>
+    </div>
+    <div class="col-3">
+      <p><%= @user.id %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>氏名</p>
+    </div>
+    <div class="col-3">
+      <p><%= f.text_field :last_name %></p>
+    </div>
+    <div class="col-3">
+      <p><%= f.text_field :first_name %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>ニックネーム</p>
+    </div>
+    <div class="col-3">
+      <p><%= f.text_field :nickname %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>自己紹介</p>
+    </div>
+    <div class="col-3">
+      <p><%= f.text_area :introduction %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>電話番号</p>
+    </div>
+    <div class="col-3">
+      <%= f.text_field :telephone_number %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>メールアドレス</p>
+    </div>
+    <div class="col-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      <p>会員ステータス</p>
+    </div>
+    <div class="col-3">
+      <span>
+        <%= f.radio_button :is_active, :true %>
+        <%= f.label :is_active_true, "有効" %>
+      </span>
+      <span>
+        <%= f.radio_button :is_active, :false %>
+        <%= f.label :is_active_false, "退会" %>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">
+      <%= f.submit "変更を保存", class:"btn btn-success" %>
+    </div>
+  </div>
+<% end %>

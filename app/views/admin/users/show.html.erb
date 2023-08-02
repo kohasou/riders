@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h4>
+        <strong><%= @user.last_name + @user.first_name %>さんの会員詳細</strong>
+      </h4>
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td class="table-secondary col-1">会員ID</td>
+        <td class="col-4"><%= @user.id %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary col-1">氏名</td>
+        <td class="col-4"><%= @user.last_name %> <%= @user.first_name %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary col-1">ニックネーム</td>
+        <td class="col-4"><%= @user.nickname %>
+      </tr>
+      <tr>
+        <td class="table-secondary col-1">自己紹介</td>
+        <td class="col-4"><%= @user.introduction %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary col-1">電話番号</td>
+        <td class="col-4"><%= @user.telephone_number %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary col-1">メールアドレス</td>
+        <td class="col-4"><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary col-1">会員ステータス</td>
+        <td class="col-4">
+          <% if @user.is_active == true %>
+            <p class="text-success">有効</p>
+          <% else %>
+            <p class="text-muted">退会</p>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-3">
+      <p><%= link_to '編集する', edit_admin_user_path, class:"btn btn-success" %></p>
+    </div>
+  </div>
+</div>
