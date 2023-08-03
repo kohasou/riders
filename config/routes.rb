@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     get '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     patch '/users/information' => 'users#update', as: 'customer'
     patch '/users/deleteprocess' => 'users#deleteprocess', as: 'deleteprocess'
-    resources :posts
+    resources :posts, only: [:new, :create, :index, :show, :edit, :destroy] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
