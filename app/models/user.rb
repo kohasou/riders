@@ -16,4 +16,9 @@ class User < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
+
+  def niced_by?(user)
+    nices.exists?(user_id: user.id)
+  end
+
 end

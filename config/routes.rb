@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     patch '/users/information' => 'users#update', as: 'customer'
     patch '/users/deleteprocess' => 'users#deleteprocess', as: 'deleteprocess'
     resources :posts, only: [:new, :create, :index, :show, :edit, :destroy] do
+      resource :nices, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
   end
