@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <%= link_to 'ログアウト',  destroy_user_session_path , method: :delete %>
+    <%= link_to 'ユーザーログアウト',  destroy_user_session_path , method: :delete %>
+    <%= link_to '管理者ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-outline-dark" %>
     <%= yield %>
   </body>
 </html>

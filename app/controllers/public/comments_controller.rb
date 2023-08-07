@@ -1,9 +1,9 @@
 class Public::CommentsController < ApplicationController
     def create
     post = Post.find(params[:post_id])
-    comment = current_user.comments.new(comment_params)
-    comment.post_id = post.id
-    comment.save
+    reply = current_user.comments.new(comment_params)
+    reply.post_id = post.id
+    reply.save
     redirect_to post_path(post)
   end
 

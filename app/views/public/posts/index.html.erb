@@ -26,8 +26,8 @@
           <% end %>
         </td>
       </tr>
+        <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
     <% end %>
     </tbody>
   </table>
-  <p><%= link_to "#{post.comments.count} コメント", post_path(post_.id) %></p>
 </div>
