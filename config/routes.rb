@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get '/users/my_page' => 'users#show', as: 'my_page'
     get '/users/information/edit' => 'users#edit', as: 'edit_customer'
     get '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
+    get "search" => "searches#search"
     patch '/users/information' => 'users#update', as: 'customer'
     patch '/users/deleteprocess' => 'users#deleteprocess', as: 'deleteprocess'
     resources :posts, only: [:new, :create, :index, :show, :edit, :destroy] do
