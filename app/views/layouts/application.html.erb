@@ -14,7 +14,7 @@
   <body>
     <%= link_to 'ユーザーログアウト',  destroy_user_session_path , method: :delete %>
     <%= link_to '管理者ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-outline-dark" %>
-    
+    <%= render 'layouts/search' %>
     <%= yield %>
   </body>
 </html>

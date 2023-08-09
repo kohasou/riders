@@ -16,7 +16,9 @@
       <% @posts.each do |post| %>
         <tr>
           <td><%= post.body %></td>
-          <td><%= image_tag post.image %></td>
+          <td>
+            <%= image_tag post.image if post.image.attached? %>
+          </td>
         </tr>
       <% end %>
     </tbody>

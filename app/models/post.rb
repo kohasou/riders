@@ -15,4 +15,16 @@ class Post < ApplicationRecord
   def niced_by?(user)
     nices.exists?(user_id: user.id)
   end
+
+# 検索方法分岐
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post = Post.where("body LIKE?","#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("body LIKE?","%#{word}%")
+    else
+      @post = Post.all
+    end
+  end
+
 end
