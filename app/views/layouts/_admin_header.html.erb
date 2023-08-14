@@ -1,0 +1,13 @@
+<% if admin_signed_in? %>
+  <ul class="navbar-nav ml-auto">
+    <li>
+      <%= link_to '投稿一覧', admin_posts_path, class:"btn btn-outline-dark mr-3" %>
+    </li>
+    <li>
+      <%= link_to '会員一覧', admin_users_path, class:"btn btn-outline-dark mr-3" %>
+    </li>
+    <li>
+      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-outline-dark" %>
+    </li>
+  </ul>
+<% end %>

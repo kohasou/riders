@@ -12,7 +12,7 @@
   <% else %>
     <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
   <% end %>
-  <%= render 'relationships/relationship' %>
+  <%= render 'public/relationships/relationship', user: @user %>
   <table class="table table-bordered col-5">
     <tbody>
       <tr>
