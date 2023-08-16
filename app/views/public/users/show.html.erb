@@ -1,44 +1,26 @@
-<div class="container">
+<div class="container p-4">
   <div class="row">
+    <div class="col-3">
+      <div><%= image_tag @user.get_profile_image(200,200) %></div>
+    </div>
     <div class="col">
-      <p class="h3">
-        <strong>登録情報</strong>
-      </p>
       <p><%= link_to '編集する', edit_customer_path, class:"btn btn-success" %></p>
     </div>
   </div>
+  <div class="row">
+    <h4 class="col-3">
+      <%= @user.nickname %>
+    </h4>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <%= @user.introduction %>
+    </div>
+  </div>
+  <%= render 'public/relationships/relationship', user: @user %>
   <% if current_user.following?(@user) %>
     <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete %>
   <% else %>
     <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
   <% end %>
-  <%= render 'public/relationships/relationship', user: @user %>
-  <table class="table table-bordered col-5">
-    <tbody>
-      <tr>
-        <td class="table-secondary col-3">氏名</td>
-        <td class="col-5"><%= @user.last_name %> <%= @user.first_name %></td>
-      </tr>
-      <tr>
-        <td class="table-secondary col-3">ニックネーム</td>
-        <td class="col-5"><%= @user.nickname %></td>
-      </tr>
-      <tr>
-        <td class="table-secondary col-3">プロフィール画像</td>
-        <td class="col-5"><%= image_tag @user.get_profile_image(200,200) %></td>
-      </tr>
-      <tr>
-        <td class="table-secondary col-3">自己紹介文</td>
-        <td class="col-5"><%= @user.introduction %></td>
-      </tr>
-      <tr>
-        <td class="table-secondary col-3">電話番号</td>
-        <td class="col-5"><%= @user.telephone_number %></td>
-      </tr>
-      <tr>
-        <td class="table-secondary col-3">メールアドレス</td>
-        <td class="col-5"><%= @user.email %></td>
-      </tr>
-    </tbody>
-  </table>
 </div>

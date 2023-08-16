@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-3">
+  <div class="col-3 p-4">
     <h4>
       <strong>新規登録</strong>
     </h4>
@@ -48,7 +48,7 @@
 
   <div class="row">
     <div class="col-3">
-      <p>自己紹介</p>
+      <p>自己紹介(任意)</p>
     </div>
     <div class="col-3">
       <%= f.text_area :introduction %>
@@ -57,7 +57,7 @@
 
   <div class="row">
     <div class="col-3">
-      <p>プロフィール画像</p>
+      <p>プロフィール画像(任意)</p>
     </div>
     <div class="col-3">
       <%= f.file_field :profile_image, accept: "image/*" %>
