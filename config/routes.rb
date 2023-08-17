@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    root to: "homes#top"
+    root to: "posts#index"
     get '/about' => 'homes#about', as: 'about'
     get '/users/my_page' => 'users#show', as: 'my_page'
     get '/users/information/edit' => 'users#edit', as: 'edit_customer'

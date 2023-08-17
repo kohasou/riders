@@ -2,6 +2,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
+    @posts = @user.posts
   end
 
   def edit
@@ -28,7 +29,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :nickname, :profile_image, :introduction, :telephone_number, :email,)
+    params.require(:user).permit(:last_name, :first_name, :nickname, :image, :introduction, :telephone_number, :email,)
   end
 
 end
