@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @post = Post.new
   end
@@ -15,7 +17,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    
+
   end
 
   def show

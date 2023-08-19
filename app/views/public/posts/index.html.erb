@@ -37,13 +37,13 @@
         <% if post.niced_by?(current_user) %>
           <p>
             <%= link_to post_nices_path(post), method: :delete do %>
-              ♥<%= post.nices.count %> いいね
+              ♥<%= post.nices.count %> いいね!
             <% end %>
           </p>
           <% else %>
           <p>
             <%= link_to post_nices_path(post), method: :post do %>
-              ♡<%= post.nices.count %> いいね
+              ♡<%= post.nices.count %> いいね!
             <% end %>
           </p>
         <% end %>
