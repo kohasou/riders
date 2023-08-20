@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container p-4">
   <div class="row">
     <div class="col-3">
       <h4>
@@ -16,7 +16,7 @@
         <td class="col-3">画像</td>
         <td class="col-5">
           <% if @post.image.attached? %>
-            <%= image_tag @post.get_image(200,200) %>
+            <%= image_tag @post.image, size: "200x200" %>
           <% else %>
             <td></td>
           <% end %>
@@ -24,20 +24,30 @@
       </tr>
       <tr>
         <td></td>
-        <td><%= link_to '編集する', edit_post_path, class:"btn btn-success" %></td>
+        <td>
+          <% if @post.user == current_user %>
+            <%= link_to '編集する', edit_post_path(@post), class:"btn btn-success" %>
+          <% end %>
+        </td>
+        <td>
+          <% if @post.user == current_user %>
+            <%= link_to '削除', post_path(@post), method: :delete, class:"btn btn-danger" %>
+          <% end %>
+        </td>
       </tr>
     </tbody>
   </table>
 
-  <div>
-    <p>コメント件数：<%= @post.comments.count %></p>
+  <div class="container p-5">
     <% @post.comments.each do |comment| %>
-      <%= comment.user.nickname %>
-      <%= comment.created_at.strftime('%Y/%m/%d') %><br>
-      <%= comment.reply %>
-      <% if comment.user == current_user %>
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
-      <% end %>
+    <div class="row pb-3">
+        <%= comment.user.nickname %>
+        <%= comment.created_at.strftime('%m/%d') %>
+        <%= comment.reply %>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class:"link_danger" %>
+        <% end %>
+    </div>
     <% end %>
   </div>
   <div>

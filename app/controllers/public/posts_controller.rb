@@ -17,7 +17,6 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-
   end
 
   def show
@@ -37,6 +36,12 @@ class Public::PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_path
   end
 
   private
