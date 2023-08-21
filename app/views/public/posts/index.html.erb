@@ -13,7 +13,7 @@
   <div class="container border">
     <div class="row">
       <div class="col">
-        <%= link_to my_page_path(post.user.id), class:"link-dark" do %>
+        <%= link_to user_path(post.user.id), class:"link-dark" do %>
           <%= image_tag post.user.image, size: "100x100" %>
           <%= post.user.nickname %>
         <% end %>
@@ -21,7 +21,9 @@
     </div>
     <div class="row">
       <div class="col">
-        <%= post.body %>
+        <%= link_to post_path(post.id), class:"link_dark" do %>
+          <%= post.body %>
+        <% end %>
       </div>
     </div>
     <div class="row">

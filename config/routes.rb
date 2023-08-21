@@ -12,13 +12,20 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     root to: "homes#top"
-    resources :users
+    get '/users' => 'users#index', as: 'users'
+    get '/users/:id' => 'users#show', as: 'user_show'
+    get '/users/:id/edit' => 'users#edit', as: 'user_edit'
+    patch '/users/:id' => 'user#update', as: 'update'
+    resources :posts, only: [:new, :create, :index, :show, :edit, :destroy] do
+      resource :nices, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
   scope module: :public do
     root to: "homes#top"
     get '/about' => 'homes#about', as: 'about'
-    get '/users/my_page' => 'users#show', as: 'my_page'
+    get '/users/:id' => 'users#show', as: 'user'
     get '/users/information/edit' => 'users#edit', as: 'edit_customer'
     get '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     get "search" => "searches#search"

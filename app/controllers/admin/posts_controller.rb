@@ -1,19 +1,4 @@
-class Public::PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit]
-
-  def new
-    @post = Post.new
-  end
-
-  def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    if @post.save
-      redirect_to post_path(@post.id)
-    else
-      render :new
-    end
-  end
+class Admin::PostsController < ApplicationController
 
   def index
     @posts = Post.all
@@ -25,7 +10,6 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-    @post = current_user
     @post = Post.find(params[:id])
   end
 

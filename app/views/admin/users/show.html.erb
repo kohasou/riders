@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container p-4">
   <div class="row">
     <div class="col-4">
       <h4>
@@ -19,10 +19,6 @@
       <tr>
         <td class="table-secondary col-1">ニックネーム</td>
         <td class="col-4"><%= @user.nickname %>
-      </tr>
-      <tr>
-        <td class="table-secondary col-1">自己紹介</td>
-        <td class="col-4"><%= @user.introduction %></td>
       </tr>
       <tr>
         <td class="table-secondary col-1">電話番号</td>
@@ -46,7 +42,7 @@
   </table>
   <div class="row">
     <div class="col-3">
-      <p><%= link_to '編集する', edit_admin_user_path, class:"btn btn-success" %></p>
+      <p><%= link_to '編集する', admin_user_edit_path, class:"btn btn-success" %></p>
     </div>
   </div>
 </div>

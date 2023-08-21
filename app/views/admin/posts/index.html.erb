@@ -30,6 +30,11 @@
         <% end %>
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
+      </div>
     <% end %>
+    </div>
   </div>
 </div>
