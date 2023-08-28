@@ -11,27 +11,29 @@
   </div>
     <% @posts.each do |post| %>
   <div class="container border">
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
-        <%= link_to user_path(post.user.id), class:"link-dark" do %>
+        <%= link_to user_path(post.user.id), style: "color: black" do %>
           <%= image_tag post.user.image, size: "100x100" %>
           <%= post.user.nickname %>
         <% end %>
       </div>
     </div>
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
-        <%= link_to post_path(post.id), class:"link_dark" do %>
+        <%= link_to post_path(post.id), style: "color: black" do %>
           <%= post.body %>
         <% end %>
       </div>
     </div>
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
-        <% if post.image.attached? %>
-          <%= image_tag post.image, size: "200x200" %>
-        <% else %>
-          <td></td>
+        <%= link_to post_path(post.id), style: "color: black" do %>
+          <% if post.image.attached? %>
+            <%= image_tag post.image, size: "200x200" %>
+          <% else %>
+            <td></td>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -51,6 +53,11 @@
             <% end %>
           </p>
         <% end %>
+      </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col">
+        <%= post.created_at.strftime('%Y/%m/%d') %>
       </div>
     <% end %>
     </div>

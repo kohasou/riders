@@ -9,18 +9,18 @@
   </div>
     <% @posts.each do |post| %>
   <div class="container border">
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
         <%= image_tag post.user.image, size: "100x100" %>
         <%= post.user.nickname %>
       </div>
     </div>
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
         <%= post.body %>
       </div>
     </div>
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
         <% if post.image.attached? %>
           <%= image_tag post.image %>
@@ -29,11 +29,6 @@
         <% end %>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
-      </div>
-    <% end %>
-    </div>
   </div>
+    <% end %>
 </div>

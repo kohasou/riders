@@ -14,7 +14,7 @@
       </tr>
       <tr>
         <td class="col-3">画像</td>
-        <td class="col-5">
+        <td class="col-5 pt-3">
           <% if @post.image.attached? %>
             <%= image_tag @post.image, size: "200x200" %>
           <% else %>
@@ -24,12 +24,12 @@
       </tr>
       <tr>
         <td></td>
-        <td>
+        <td class="pt-3">
           <% if @post.user == current_user %>
             <%= link_to '編集する', edit_post_path(@post), class:"btn btn-success" %>
           <% end %>
         </td>
-        <td>
+        <td class="pt-3">
           <% if @post.user == current_user %>
             <%= link_to '削除', post_path(@post), method: :delete, class:"btn btn-danger" %>
           <% end %>
@@ -71,4 +71,7 @@
       </p>
     <% end %>
   </div>
+  <%= link_to :back do %>
+    <button>戻る</button>
+  <% end %>
 </div>

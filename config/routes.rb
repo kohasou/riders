@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get '/users' => 'users#index', as: 'users'
     get '/users/:id' => 'users#show', as: 'user_show'
     get '/users/:id/edit' => 'users#edit', as: 'user_edit'
-    patch '/users/:id' => 'user#update', as: 'update'
+    post '/users/:id' => 'users#update', as: 'update'
     resources :posts, only: [:new, :create, :index, :show, :edit, :destroy] do
       resource :nices, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about', as: 'about'
     get '/users/:id' => 'users#show', as: 'user'
     get '/users/information/edit' => 'users#edit', as: 'edit_customer'
-    get '/users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
+    get '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
     get "search" => "searches#search"
     patch '/users/information' => 'users#update', as: 'customer'
     patch '/users/deleteprocess' => 'users#deleteprocess', as: 'deleteprocess'

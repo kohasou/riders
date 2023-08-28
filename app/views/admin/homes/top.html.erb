@@ -6,30 +6,37 @@
   </div>
     <% @posts.each do |post| %>
   <div class="container border">
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
-        <%= link_to admin_user_show_path(post.user.id), class:"link-dark" do %>
+        <%= link_to admin_user_show_path(post.user.id), style: "color: black"  do %>
           <%= image_tag post.user.image, size: "100x100" %>
           <%= post.user.nickname %>
         <% end %>
       </div>
     </div>
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
-        <%= link_to admin_post_path(post.id), class:"link_dark" do %>
+        <%= link_to admin_post_path(post.id), style: "color: black"  do %>
           <%= post.body %>
         <% end %>
       </div>
     </div>
-    <div class="row">
+    <div class="row pt-3">
       <div class="col">
-        <% if post.image.attached? %>
-          <%= image_tag post.image, size: "200x200" %>
-        <% else %>
-          <td></td>
+        <%= link_to admin_post_path(post.id), style: "color: black" do %>
+          <% if post.image.attached? %>
+            <%= image_tag post.image, size: "200x200" %>
+          <% else %>
+            <td></td>
+          <% end %>
         <% end %>
       </div>
     </div>
-    <% end %>
+    <div class="row pt-3 pb-3">
+      <div class="col">
+        <%= post.created_at.strftime('%Y/%m/%d') %>
+      </div>
+    </div>
   </div>
+    <% end %>
 </div>

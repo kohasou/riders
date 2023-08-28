@@ -1,26 +1,35 @@
-<h2>検索結果</h2>
-
-<table class="table table-hover table-inverse">
-  <!--検索対象モデルがUserの時 -->
-  <% if @range == "User" %>
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= user.nickname %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.body %></td>
-          <td>
-            <%= image_tag post.image if post.image.attached? %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% end %>
-</table>
+<div class="container p-4">
+  <div class="row pb-3">
+    <h4>
+      <strong>検索結果</strong>
+    </h4>
+  </div>
+  <table class="table table-hover table-inverse">
+    <!--検索対象モデルがUserの時 -->
+    <% if @range == "User" %>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.nickname, user_path(user.id) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% else %>
+      <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= link_to post.body, post_path(post.id) %></td>
+            <td>
+              <% if post.image.attached? %>
+                <%= image_tag post.image, size: "200x200" %>
+              <% else %>
+                <td></td>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    <% end %>
+  </table>
+</div>

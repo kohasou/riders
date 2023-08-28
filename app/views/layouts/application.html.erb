@@ -14,9 +14,10 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark p-4">
-        <div class="container sticky-top">
-          <h2>Riders</h2>
-          <h3 class="fa-solid fa-motorcycle"></h3>
+        <div class="container">
+          <%= link_to root_path, class:"btn btn-outline-dark" do %>
+            <h3>Riders</h3><h4 class="fa-solid fa-motorcycle"></h4>
+          <% end %>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <%= render 'layouts/admin_header' %>
             <%= render 'layouts/user_header' %>
