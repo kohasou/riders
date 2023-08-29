@@ -33,7 +33,11 @@
   <div class="container border">
     <div class="row pt-3">
       <div class="col">
-        <%= image_tag post.user.image, size: "100x100" %>
+        <% if post.user.image.attached? %>
+          <%= image_tag post.user.image, size: "100x100" %>
+        <% else %>
+          <%= image_tag "no_image.jpg", size: "100x100" %>
+        <% end %>
         <%= post.user.nickname %>
       </div>
     </div>
