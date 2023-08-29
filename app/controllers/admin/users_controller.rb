@@ -8,6 +8,11 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def profile
+    @user = User.find(params[:id])
+    @posts = @user.posts
+  end
+
   def edit
     @user = User.find(params[:id])
   end

@@ -44,5 +44,8 @@
     <div class="col-3">
       <p><%= link_to '編集する', admin_user_edit_path, class:"btn btn-success" %></p>
     </div>
+    <div class="col-3">
+      <p><%= link_to 'プロフィール', admin_user_profile_path(@user.id), class:"btn btn-primary" %></p>
+    </div>
   </div>
 </div>
