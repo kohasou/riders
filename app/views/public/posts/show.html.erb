@@ -9,11 +9,19 @@
   <table class="col-5">
     <tbody>
       <tr>
-        <td class="col-3">テキスト</td>
-        <td class="col-5"><%= @post.body %></td>
+        <td class="col-3 pt-3">投稿者</td>
+        <td class="col-3 pt-3">
+          <%= link_to user_path(@post.user.id), style: "color: black" do %>
+            <%= @post.user.nickname %>
+          <% end %>
+        </td>
       </tr>
       <tr>
-        <td class="col-3">画像</td>
+        <td class="col-3 pt-3">テキスト</td>
+        <td class="col-5 pt-3"><%= @post.body %></td>
+      </tr>
+      <tr>
+        <td class="col-3 pt-3">画像</td>
         <td class="col-5 pt-3">
           <% if @post.image.attached? %>
             <%= image_tag @post.image, size: "200x200" %>
