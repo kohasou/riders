@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get '/users/:id/edit' => 'users#edit', as: 'user_edit'
     get '/users/:id/profile' => 'users#profile', as: 'user_profile'
     post '/users/:id' => 'users#update', as: 'update'
-    resources :posts, only: [:new, :create, :index, :show, :edit, :destroy] do
+    resources :posts, only: [:new, :create, :index, :show, :edit, :destroy, :update] do
       resource :nices, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
