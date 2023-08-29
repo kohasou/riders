@@ -20,10 +20,10 @@
         <%= post.body %>
       </div>
     </div>
-    <div class="row pt-3">
+    <div class="row pt-3 pb-3">
       <div class="col">
         <% if post.image.attached? %>
-          <%= image_tag post.image %>
+          <%= image_tag post.image, size: "200x200" %>
         <% else %>
           <td></td>
         <% end %>

@@ -17,17 +17,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :telephone_number, presence: true
+  validates :nickname, presence: true
+
   def niced_by?(user)
     nices.exists?(user_id: user.id)
   end
 
   def self.looks(search, word)
     if search == "perfect_match"
-      @user = User.where("nickname LIKE?", "#{word}")
+      User.where("nickname LIKE?", "#{word}")
     elsif search == "partial_match"
-      @user = User.where("nickname LIKE?","%#{word}%")
+      User.where("nickname LIKE?","%#{word}%")
     else
-      @user = User.all
+      User.all
     end
   end
 
@@ -43,6 +48,5 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-
 
 end
