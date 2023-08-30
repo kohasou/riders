@@ -1,6 +1,7 @@
 class Public::HomesController < ApplicationController
 
   def top
+    #全ての会員の投稿一覧
     @posts = Post.all
   end
 

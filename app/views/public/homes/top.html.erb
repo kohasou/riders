@@ -12,8 +12,10 @@
     <div class="row pt-3">
       <div class="col">
         <% if post.user.image.attached? %>
+        <!-- ユーザーに画像がある場合 -->
           <%= image_tag post.user.image, size: "100x100" %>
         <% else %>
+        <!-- ユーザーに画像がない場合 -->
           <%= image_tag "no_image.jpg", size: "100x100" %>
         <% end %>
         <%= post.user.nickname %>
@@ -21,20 +23,24 @@
     </div>
     <div class="row pt-3">
       <div class="col">
+        <!-- テキスト -->
         <%= post.body %>
       </div>
     </div>
     <div class="row pt-3 pb-3">
       <div class="col">
         <% if post.image.attached? %>
+        <!-- 画像を投稿する場合-->
           <%= image_tag post.image, size: "200x200" %>
         <% else %>
+        <!-- 画像を投稿しない場合-->
           <td></td>
         <% end %>
       </div>
     </div>
     <div class="row pt-3 pb-3">
       <div class="col">
+        <!-- 投稿日 -->
         <%= post.created_at.strftime('%Y/%m/%d') %>
       </div>
     </div>

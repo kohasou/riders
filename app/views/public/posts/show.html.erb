@@ -24,8 +24,10 @@
         <td class="col-3 pt-3">画像</td>
         <td class="col-5 pt-3">
           <% if @post.image.attached? %>
+          <!-- 画像を投稿する場合-->
             <%= image_tag @post.image, size: "200x200" %>
           <% else %>
+          <!-- 画像を投稿しない場合-->
             <td></td>
           <% end %>
         </td>
@@ -33,11 +35,13 @@
       <tr>
         <td></td>
         <td class="pt-3">
+          <!-- ログインしているユーザーにのみ表示-->
           <% if @post.user == current_user %>
             <%= link_to '編集する', edit_post_path(@post), class:"btn btn-success" %>
           <% end %>
         </td>
         <td class="pt-3">
+          <!-- ログインしているユーザーにのみ表示-->
           <% if @post.user == current_user %>
             <%= link_to '削除', post_path(@post), method: :delete, class:"btn btn-danger" %>
           <% end %>
@@ -47,11 +51,13 @@
   </table>
 
   <div class="container p-5">
+    <!-- コメント一覧 -->
     <% @post.comments.each do |comment| %>
     <div class="row pb-3">
         <%= comment.user.nickname %>
         <%= comment.created_at.strftime('%m/%d') %>
         <%= comment.reply %>
+        <!-- コメントの投稿者のみ表示-->
         <% if comment.user == current_user %>
           <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class:"link_danger" %>
         <% end %>
@@ -59,6 +65,7 @@
     <% end %>
   </div>
   <div>
+    <!-- コメントの投稿 -->
     <%= form_with model: [@post, @comment] do |f| %>
       <%= f.text_area :reply, rows: '5', placeholder: "コメントをここに" %>
       <%= f.submit "送信する" %>
@@ -66,6 +73,7 @@
   </div>
   <div>
     <% if @post.niced_by?(current_user) %>
+    <!-- いいね機能 -->
       <p>
         <%= link_to post_nices_path(@post), method: :delete do %>
           ♥<%= @post.nices.count %> いいね

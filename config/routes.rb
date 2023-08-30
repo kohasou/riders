@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+
+  #管理者
   namespace :admin do
     root to: "homes#top"
     get '/users' => 'users#index', as: 'users'
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
+  #ユーザー
   scope module: :public do
     root to: "homes#top"
     get '/about' => 'homes#about', as: 'about'

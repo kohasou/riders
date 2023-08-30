@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+  <!-- ユーザーでログインしている場合-->
   <ul class="navbar-nav ml-auto">
     <li>
       <%= render 'layouts/search' %>
@@ -20,6 +21,7 @@
     </li>
   </ul>
 <% elsif !admin_signed_in? %>
+  <!-- ユーザーでログインしていない場合-->
   <ul class="navbar-nav ml-auto">
     <li>
       <%= link_to about_path, class:"btn btn-outline-dark mr-3" do %>

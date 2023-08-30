@@ -9,61 +9,7 @@
       <% end %>
     </div>
   </div>
-    <% @posts.each do |post| %>
-  <div class="container border">
-    <div class="row pt-3">
-      <div class="col">
-        <%= link_to user_path(post.user.id), style: "color: black" do %>
-          <% if post.user.image.attached? %>
-            <%= image_tag post.user.image, size: "100x100" %>
-          <% else %>
-            <%= image_tag "no_image.jpg", size: "100x100" %>
-          <% end %>
-          <%= post.user.nickname %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row pt-3">
-      <div class="col">
-        <%= link_to post_path(post.id), style: "color: black" do %>
-          <%= post.body %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row pt-3">
-      <div class="col">
-        <%= link_to post_path(post.id), style: "color: black" do %>
-          <% if post.image.attached? %>
-            <%= image_tag post.image, size: "200x200" %>
-          <% else %>
-            <td></td>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
-        <% if post.niced_by?(current_user) %>
-          <p>
-            <%= link_to post_nices_path(post), method: :delete do %>
-              ♥<%= post.nices.count %> いいね!
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post_nices_path(post), method: :post do %>
-              ♡<%= post.nices.count %> いいね!
-            <% end %>
-          </p>
-        <% end %>
-      </div>
-    </div>
-    <div class="row pt-2">
-      <div class="col">
-        <%= post.created_at.strftime('%Y/%m/%d') %>
-      </div>
-    <% end %>
+<%= render 'layouts/public_post', posts: @posts %>
     </div>
   </div>
 </div>

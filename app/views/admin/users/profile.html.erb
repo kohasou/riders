@@ -2,23 +2,28 @@
   <div class="row p-3">
     <div class="col-3">
       <% if @user.image.attached? %>
+      <!-- ユーザーに画像がある場合 -->
         <div><%= image_tag @user.image, size: "100x100" %></div>
       <% else %>
+      <!-- ユーザーに画像がない場合 -->
         <div><%= image_tag "no_image.jpg", size: "100x100" %></div>
       <% end %>
     </div>
   </div>
   <div class="row p-2">
     <h4 class="col-3">
+      <!-- ニックネーム -->
       <%= @user.nickname %>
     </h4>
   </div>
   <div class="row p-2">
     <div class="col-3">
+      <!-- 自己紹介 -->
       <%= @user.introduction %>
     </div>
   </div>
   <div class="pb-2">
+    <!-- フォロー・フォロワー -->
     <%= render 'public/relationships/relationship', user: @user %>
   </div>
     <% @posts.each do |post| %>
@@ -26,8 +31,10 @@
     <div class="row pt-3">
       <div class="col">
         <% if post.user.image.attached? %>
+          <!-- ユーザーに画像がある場合 -->
           <%= image_tag post.user.image, size: "100x100" %>
         <% else %>
+          <!-- ユーザーに画像がない場合 -->
           <%= image_tag "no_image.jpg", size: "100x100" %>
         <% end %>
         <%= post.user.nickname %>
@@ -36,6 +43,7 @@
     <div class="row pt-3">
       <div class="col">
         <%= link_to admin_post_path(post.id), style: "color: black" do %>
+          <!-- テキスト -->
           <%= post.body %>
         <% end %>
       </div>
@@ -44,8 +52,10 @@
       <div class="col">
         <%= link_to admin_post_path(post.id), style: "color: black" do %>
           <% if post.image.attached? %>
+          <!-- 画像を投稿する場合-->
             <%= image_tag post.image, size: "200x200" %>
           <% else %>
+          <!-- 画像を投稿しない場合-->
             <td></td>
           <% end %>
         <% end %>
@@ -53,6 +63,7 @@
     </div>
     <div class="row pt-3 pb-3">
       <div class="col">
+        <!-- 投稿日 -->
         <%= post.created_at.strftime('%Y/%m/%d') %>
       </div>
     </div>

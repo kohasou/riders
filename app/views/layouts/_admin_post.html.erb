@@ -1,53 +1,53 @@
 <div class="container">
   <div class="row p-4">
     <h4>
-      <strong>いいね一覧</strong>
+      <strong>投稿一覧</strong>
     </h4>
   </div>
-  <!-- いいねした投稿を表示-->
-  <% @nice_posts.each do |post| %>
+  <!-- 投稿を順番に表示 -->
+    <% posts.each do |post| %>
   <div class="container border">
     <div class="row pt-3">
       <div class="col">
-        <%= link_to user_path(post.user.id), style: "color: black" do %>
+        <%= link_to admin_user_show_path(post.user.id), style: "color: black" do %>
           <% if post.user.image.attached? %>
-          <!-- ユーザーに画像がある場合 -->
+            <!-- ユーザーに画像がある場合 -->
             <%= image_tag post.user.image, size: "100x100" %>
           <% else %>
-          <!-- ユーザーに画像がない場合 -->
+            <!-- ユーザーに画像がない場合 -->
             <%= image_tag "no_image.jpg", size: "100x100" %>
           <% end %>
-          <%= post.user.nickname %>
+            <%= post.user.nickname %>
         <% end %>
       </div>
     </div>
     <div class="row pt-3">
       <div class="col">
-        <%= link_to post_path(post.id), style: "color: black" do %>
+        <%= link_to admin_post_path(post.id), style: "color: black" do %>
         <!-- テキスト -->
           <%= post.body %>
         <% end %>
       </div>
     </div>
-    <div class="row pt-3">
+    <div class="row pt-3 pb-3">
       <div class="col">
-        <%= link_to post_path(post.id), style: "color: black" do %>
-        <!-- 画像を投稿する場合-->
+        <%= link_to admin_post_path(post.id), style: "color: black" do %>
           <% if post.image.attached? %>
+          <!-- 画像を投稿する場合-->
             <%= image_tag post.image, size: "200x200" %>
           <% else %>
-        <!-- 画像を投稿しない場合-->
+          <!-- 画像を投稿しない場合-->
             <td></td>
           <% end %>
         <% end %>
       </div>
     </div>
-    <div class="row pt-2">
+    <div class="row pt-3 pb-3">
       <div class="col">
         <!-- 投稿日 -->
         <%= post.created_at.strftime('%Y/%m/%d') %>
       </div>
-  <% end %>
     </div>
   </div>
+    <% end %>
 </div>

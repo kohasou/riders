@@ -3,10 +3,11 @@
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :user_state, only: [:create]
+    #ログイン後の遷移先
     def after_sign_in_path_for(resource)
       posts_path
     end
-
+    #ログアウト後の遷移先
     def after_sign_out_path_for(resource)
       root_path
     end
@@ -14,6 +15,7 @@ class Public::SessionsController < Devise::SessionsController
   protected
 
     def user_state
+      #退会した人のアクセス制限
       @user = User.find_by(email: params[:user][:email])
       return if !@user
       if @user.valid_password?(params[:user][:password])
