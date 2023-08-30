@@ -9,7 +9,9 @@
         <!-- ユーザーに画像がない場合 -->
           <%= image_tag "no_image.jpg", size: "100x100" %>
         <% end %>
-        <%= post.user.nickname %>
+        <%= link_to user_path(post.user.id), style: "color: black" do %>
+          <%= post.user.nickname %>
+        <% end %>
       </div>
     </div>
     <div class="row pt-3">
