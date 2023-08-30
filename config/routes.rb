@@ -29,11 +29,12 @@ Rails.application.routes.draw do
     get '/users/:id' => 'users#show', as: 'user'
     get '/users/information/edit' => 'users#edit', as: 'edit_customer'
     get '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
+    get '/users/:id/nice' => 'users#nices', as: 'nice'
     get "search" => "searches#search"
     patch '/users/information' => 'users#update', as: 'customer'
     patch '/users/deleteprocess' => 'users#deleteprocess', as: 'deleteprocess'
     resources :posts, only: [:new, :create, :index, :show, :edit, :destroy, :update] do
-      resource :nices, only: [:create, :destroy]
+      resource :nices, only: [:index, :create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
     resources :users do

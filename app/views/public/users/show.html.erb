@@ -29,6 +29,9 @@
         <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
       <% end %>
   </div>
+  <div class="pb-2">
+    <p><%=link_to "いいね一覧", nice_path(@user.id), class:"btn btn-primary" %></p>
+  </div>
     <% @posts.each do |post| %>
   <div class="container border">
     <div class="row pt-3">
