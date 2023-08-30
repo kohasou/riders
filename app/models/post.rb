@@ -4,6 +4,8 @@ class Post < ApplicationRecord
     has_many :nices, dependent: :destroy
     has_many :comments, dependent: :destroy
 
+    validates :body, presence: true
+
   def niced_by?(user)
     nices.exists?(user_id: user.id)
   end
