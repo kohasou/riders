@@ -34,7 +34,6 @@ class Public::PostsController < ApplicationController
   def edit
     #投稿の編集
     #ログインしているユーザー
-    @post = current_user
     @post = Post.find(params[:id])
   end
 
