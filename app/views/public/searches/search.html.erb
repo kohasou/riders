@@ -10,6 +10,15 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
+            <td>
+              <% if user.image.attached? %>
+              <!-- ユーザーに画像がある場合 -->
+                <%= image_tag user.image, size: "100x100" %>
+              <% else %>
+              <!-- ユーザーに画像がない場合 -->
+                <%= image_tag "no_image.jpg", size: "100x100" %>
+              <% end %>
+            </td>
             <td><%= link_to user.nickname, user_path(user.id) %></td>
           </tr>
         <% end %>
