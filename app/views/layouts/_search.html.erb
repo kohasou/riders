@@ -2,8 +2,11 @@
   <div class="search_form mr-3">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word %>
+      <!-- ユーザーか投稿か選択 -->
       <%= f.select :range, options_for_select([['User'], ['Post']]) %>
+      <!-- 完全一致か部分一致 -->
       <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
+      <!-- 検索 -->
       <%= f.submit "検索", class: "btn btn-primary" %>
     <% end %>
   </div>

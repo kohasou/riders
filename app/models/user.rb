@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   validates :last_name, presence: true
   validates :first_name, presence: true
+  # 数字のみ
   validates :telephone_number, numericality: {only_integer: true}
   validates :nickname, presence: true
 
@@ -27,8 +28,10 @@ class User < ApplicationRecord
   end
 
   def self.looks(search, word)
+    # 完全一致
     if search == "perfect_match"
       User.where("nickname LIKE?", "#{word}")
+    #部分一致
     elsif search == "partial_match"
       User.where("nickname LIKE?","%#{word}%")
     else
