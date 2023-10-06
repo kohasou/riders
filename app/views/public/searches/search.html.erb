@@ -18,8 +18,8 @@
               <!-- ユーザーに画像がない場合 -->
                 <%= image_tag "no_image.jpg", size: "100x100" %>
               <% end %>
+              <%= link_to user.nickname, user_path(user.id), style: "color: black" %>
             </td>
-            <td><%= link_to user.nickname, user_path(user.id) %></td>
           </tr>
         <% end %>
       </tbody>
