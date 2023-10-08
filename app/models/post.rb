@@ -3,6 +3,7 @@ class Post < ApplicationRecord
     belongs_to :user
     has_many :nices, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_many :notifications, dependent: :destroy
 
     validates :body, presence: true
 
