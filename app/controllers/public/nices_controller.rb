@@ -5,6 +5,7 @@ class Public::NicesController < ApplicationController
     nice = current_user.nices.new(post_id: post.id)
     #いいねを保存
     nice.save
+    post.create_notification_like!(current_user)
     redirect_to posts_path(post)
   end
 
@@ -12,7 +13,7 @@ class Public::NicesController < ApplicationController
     #いいねを削除
     post = Post.find(params[:post_id])
     nice = current_user.nices.find_by(post_id: post.id)
-    #いいねの削除処理
+    #いいねの削除
     nice.destroy
     redirect_to posts_path(post)
   end
