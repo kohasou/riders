@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     patch '/users/information' => 'users#update', as: 'customer'
     patch '/users/deleteprocess' => 'users#deleteprocess', as: 'deleteprocess'
+    resources :notifications, only: :index
     resources :posts, only: [:new, :create, :index, :show, :edit, :destroy, :update] do
       resource :nices, only: [:index, :create, :destroy]
       resources :comments, only: [:create, :destroy]
