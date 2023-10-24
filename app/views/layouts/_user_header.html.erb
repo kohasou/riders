@@ -5,6 +5,11 @@
       <%= render 'layouts/search' %>
     </li>
     <li>
+      <%= link_to notifications_path(current_user), class:"btn btn-outline-dark mr-3" do %>
+        <i class="fa-regular fa-bell"></i>通知
+      <% end %>
+    </li>
+    <li>
       <%= link_to user_path(current_user), class:"btn btn-outline-dark mr-3" do %>
         <i class="fa-solid fa-user"></i>プロフィール
       <% end %>
