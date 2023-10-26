@@ -6,7 +6,7 @@
       = link_to user_path(visitor) do
         = image_tag avatar_url(visitor).to_s, class: "icon_mini"
         strong
-          = visitor.name
+          = visitor.nickname
       = 'さんが'
 
       - case notification.action
@@ -23,7 +23,7 @@
             = link_to post_path(notification.post) do
               = image_tag avatar_url(notification.post.user).to_s, class: "icon_mini"
               strong
-                = notification.post.user.name + 'さんの投稿'
+                = notification.post.user.nickname + 'さんの投稿'
         = "にコメントしました"
         p.text-muted.mb-0
           = Comment.find_by(id: notification.reply_id)&.comment
@@ -31,3 +31,5 @@
   .small.text-muted.text-right
     = time_ago_in_words(notification.created_at).upcase
   hr
+
+
