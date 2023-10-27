@@ -2,10 +2,14 @@ class Public::NicesController < ApplicationController
   def create
     #いいね作成
     post = Post.find(params[:post_id])
-    nice = current_user.nices.new(post_id: post.id)
+    nice=current_user.active_nice.new(post_id:params[:post_id])
     #いいねを保存
     nice.save
-    post.create_notification_like!(current_user)
+    @post.create_notification_by(current_user)
+    respond_to do |format|
+      format.html {redirect_to request.referrer}
+      format.js
+    end
     redirect_to posts_path(post)
   end
 
