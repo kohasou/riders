@@ -8,7 +8,6 @@ class Public::CommentsController < ApplicationController
     reply.save
     #送信後の遷移先
     @post.create_notification_comment!(current_user, @comment.id)
-
     redirect_to post_path(post)
   end
 
