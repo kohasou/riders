@@ -2,7 +2,7 @@ class Public::NicesController < ApplicationController
   def create
     #いいね作成
     post = Post.find(params[:post_id])
-    nice=current_user.active_nice.new(post_id:params[:post_id])
+    nice=current_user.active_like.new(post_id:params[:post_id])
     #いいねを保存
     nice.save
     @post.create_notification_by(current_user)
