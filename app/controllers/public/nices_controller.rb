@@ -6,7 +6,7 @@ class Public::NicesController < ApplicationController
     #いいねを保存
     nice.save
     #通知送信
-    @post.create_notification_by(current_user)
+    post.create_notification_by(current_user)
     respond_to do |format|
       format.html {redirect_to request.referrer}
       format.js
