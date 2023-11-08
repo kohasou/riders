@@ -22,10 +22,10 @@ class Post < ApplicationRecord
     end
   end
 
-  def create_notification_by(current_user)
+  def create_notification_nice!(current_user)
     notification=current_user.active_notifications.new(
       post_id:self.id,
-      visited_id:self.contributer.id,
+      visited_id:self.user_id,
       action:"nice"
     )
     notification.save if notification.valid?

@@ -4,13 +4,10 @@ class Public::NicesController < ApplicationController
     post = Post.find(params[:post_id])
     post.create_notification_nice!(current_user)
     #いいねを保存
+    nice = Nice.new(post_id: post.id, user_id: current_user.id)
     nice.save
     #通知送信
-    post.create_notification_by(current_user)
-    respond_to do |format|
-      format.html {redirect_to request.referrer}
-      format.js
-    end
+    post.create_notification_nice!(current_user)
     redirect_to posts_path(post)
   end
 
