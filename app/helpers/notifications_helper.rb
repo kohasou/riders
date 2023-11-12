@@ -13,7 +13,7 @@ module NotificationsHelper
       when "nice" then
         "#{visitor}が#{your_post}にいいね！しました"
       when "comment" then
-        @comment=Comment.find_by(id:notification.reply_id)&.content
+        @comment=Comment.find_by(id:notification.comment_id)&.reply
         "#{visitor}が#{your_post}にコメントしました"
     end
   end
