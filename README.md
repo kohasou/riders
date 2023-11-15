@@ -18,6 +18,7 @@
 ​
 ## 設計書
 https://docs.google.com/spreadsheets/d/1irYkHgEzBT9tyTOKXM_-fyO1LeMdPdhMoIZ4mXoGA40/edit?usp=sharing
+https://drive.google.com/file/d/1Y8D8fDxstO5OiyxlH2UvEV4DpXNBgFob/view?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
