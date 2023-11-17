@@ -1,5 +1,5 @@
 class Public::CommentsController < ApplicationController
-    def create
+  def create
     #コメントの作成
     post = Post.find(params[:post_id])
     reply = current_user.comments.new(comment_params)
