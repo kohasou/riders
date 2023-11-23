@@ -20,11 +20,11 @@ end
 
 Post.find_or_create_by!(body: "こんにちは") do |post|
   post.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post1.jpg"), filename:"sample-post1.jpg")
-  post.user_id = "1"
+  post.user_id = tarou.id
 end
 
 Post.find_or_create_by!(body: "はじめまして") do |post|
-  post.user_id = "1"
+  post.user_id = tarou.id
 end
 
 
