@@ -2,7 +2,6 @@
 <% post=notification.post %>
 
 <div class="user-view clearfix ">
-  <%= link_to user_path(notification.visitor) %>
   <%== notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
   <br>
   <% if !@comment.nil? %>
